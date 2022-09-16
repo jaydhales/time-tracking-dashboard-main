@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(226, 43%, 10%);
+  color: white;
+  padding: 10rem;
+}
+
+main {
+  display: flex;
+  place-content: center;
+  gap: 3rem;
+}
+/* .user{  
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+   justify-content: center;
+    
+}*/
+
+.column-one {
+  display: flex;
+  place-content: center;
+  gap: 5rem;
+}
+
+.column-two {
+  display: flex;
+  place-content: center;
+  justify-content: space-around;
+}
+
+.users-corner {
+  margin: 5px;
+  border-radius: 5px;
+  width: 400px;
+}
+
+.users-info {
+  display: flex;
+  gap: 1rem;
+  background-color: hsl(246, 80%, 60%);
+  width: 300px;
+}
+
+.image {
+  width: 10px;
+}
+/* img {
+  width: 20px;
+} */
+@media screen and (max-width: 768px) {
+  .column-one {
+    display: block;
+  }
+  .column-two {
+    display: block;
+  }
+  main {
+    display: block;
+  }
+}
+/* ## Colors 
+
+### Primary
+
+- Blue: hsl(246, 80%, 60%)
+
+- Light red (work): hsl(15, 100%, 70%)
+- Soft blue (play): hsl(195, 74%, 62%)
+- Light red (study): hsl(348, 100%, 68%)
+- Lime green (exercise): hsl(145, 58%, 55%)
+- Violet (social): hsl(264, 64%, 52%)
+- Soft orange (self care): hsl(43, 84%, 65%)
+
+### Neutral
+
+- Very dark blue: hsl(226, 43%, 10%)
+- Dark blue: hsl(235, 46%, 20%)
+- Desaturated blue: hsl(235, 45%, 61%)
+- Pale Blue: hsl(236, 100%, 87%)
+
+## Typography
+
+### Body Copy
+
+- Font size: 18px (card titles e.g. Work, Play)
+
+### Font
+
+- Family: [Rubik](https://fonts.google.com/specimen/Rubik)
+- Weights: 300, 400, 500
+
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+*/
