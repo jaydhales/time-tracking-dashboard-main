@@ -4,8 +4,13 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Rubik";
+  src: url(https://fonts.google.com/specimen/Rubik);
+}
+
 body {
-  background-color: hsl(226, 43%, 10%);
+  background-color: hsl(240, 33%, 1%);
   color: white;
   padding: 10rem;
 }
@@ -15,47 +20,158 @@ main {
   place-content: center;
   gap: 3rem;
 }
-/* .user{  
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
-   justify-content: center;
-    
-}*/
-
-.column-one {
-  display: flex;
-  place-content: center;
-  gap: 5rem;
-}
-
-.column-two {
-  display: flex;
-  place-content: center;
-  justify-content: space-around;
-}
+/*First section*/
 
 .users-corner {
   margin: 5px;
   border-radius: 5px;
-  width: 400px;
+  max-width: 250px;
+  max-height: 500px;
 }
 
-.users-info {
+.info {
   display: flex;
   gap: 1rem;
   background-color: hsl(246, 80%, 60%);
-  width: 300px;
+  width: 250px;
+  height: 300px;
+  border-radius: 5px;
 }
 
-.image {
-  width: 10px;
+.info img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  padding: 1rem;
 }
-/* img {
-  width: 20px;
-} */
+.username {
+  justify-content: center;
+  margin-top: 5px;
+}
+.username h3 {
+  font-family: "Rubik";
+  font-size: 30px;
+}
+
+.time {
+  background-color: hsl(226, 43%, 10%);
+  height: 200px;
+  width: 250;
+  border-radius: 5px;
+  padding: 5px;
+}
+.time p {
+  padding: 5px;
+}
+
+/*Second section*/
+
+.user-detaiils {
+  margin: 5px;
+  padding: 1rem;
+  max-width: 250px;
+  max-height: 300px;
+}
+
+.user-detaiils img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.boxes {
+  background-color: hsl(226, 43%, 10%);
+  border-radius: 5px;
+  width: 250px;
+  height: 150px;
+}
+/*general top of all the boxes*/
+
+.top {
+  border-radius: 5px;
+  height: 100px;
+}
+
+.column-one {
+  display: flex;
+  place-content: center;
+  gap: 2rem;
+}
+
+/*work box*/
+
+.top.one {
+  background-color: hsl(15, 100%, 70%);
+  position: relative;
+}
+.top img {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 0;
+  left: 200px;
+  z-index: 2;
+}
+/* play box*/
+.top.two {
+  background-color: hsl(195, 74%, 62%);
+  position: relative;
+}
+
+/*study box*/
+.top.three {
+  background-color: hsl(348, 100%, 68%);
+  position: relative;
+}
+
+/*third section*/
+
+.column-two {
+  display: flex;
+  place-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+/*exercise box*/
+.top.four {
+  background-color: hsl(145, 58%, 55%);
+  position: relative;
+}
+
+/*social box*/
+.top.five {
+  background-color: hsl(264, 64%, 52%);
+  position: relative;
+}
+
+/*selfcare box*/
+.top.six {
+  background-color: hsl(264, 64%, 52%);
+  position: relative;
+}
+
+/*contents of users details*/
+.first.line {
+  display: flex;
+  justify-content: space-between;
+}
+.first.line img {
+  padding-right: 1rem;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.second.line h3,
+p {
+  padding: 10px;
+}
+
+.second.line h3 {
+  font-family: "Rubik";
+  font-size: 30px;
+}
+
 @media screen and (max-width: 768px) {
   .column-one {
     display: block;
@@ -65,8 +181,24 @@ main {
   }
   main {
     display: block;
+    gap: 2rem;
+  }
+  .top {
+    border-radius: 5px;
+    height: 100px;
+  }
+  .second.line {
+    display: flex;
+    justify-content: space-between;
   }
 }
+.boxes {
+  background-color: hsl(226, 43%, 10%);
+  border-radius: 5px;
+  width: 250px;
+  height: 150px;
+}
+
 /* ## Colors 
 
 ### Primary
