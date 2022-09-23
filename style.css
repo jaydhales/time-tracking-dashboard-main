@@ -4,61 +4,89 @@
   box-sizing: border-box;
 }
 
-@font-face {
+/* Use the default font.google.com method, this is not going to work */
+/* @font-face {
   font-family: "Rubik";
-  src: url(https://fonts.google.com/specimen/Rubik);
-}
+  src: url("https://fonts.google.com/specimen/Rubik");
+} */
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
 
 body {
   background-color: hsl(240, 33%, 1%);
   color: white;
-  padding: 10rem;
+  /* this padding is causing problem */
+  /* padding: 10rem; */
+
+  /* center the div from here */
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+
+  font-family: "Rubik", sans-serif;
 }
 
 main {
   display: flex;
-  place-content: center;
-  gap: 3rem;
+  gap: 2rem;
+}
+
+.box,
+.users-corner {
+  /*  */
+  width: 230px;
+  /* Note: Same with user-corner */
 }
 /*First section*/
 
 .users-corner {
-  margin: 5px;
-  border-radius: 5px;
-  max-width: 250px;
-  max-height: 500px;
+  border-radius: 10px;
+  /* max-width: 250px;
+  max-height: 500px; */
+  background-color: hsl(226, 43%, 10%);
+  /* all widths are the same (user-corner,box), same border radius too */
 }
 
 .info {
   display: flex;
+  flex-direction: column;
+  /* flex-direction will change in mobile */
   gap: 1rem;
   background-color: hsl(246, 80%, 60%);
-  width: 250px;
-  height: 300px;
-  border-radius: 5px;
+  /* width is meant to depend on its parent (.user-corner) */
+  /* width: 250px;
+  height: 300px; */
+  border-radius: 10px;
+  padding: 1rem;
 }
 
 .info img {
   width: 100px;
   height: 100px;
-  object-fit: cover;
-  padding: 1rem;
+  /* let .info take the padding */
+  /* padding: 1rem; */
 }
 .username {
   justify-content: center;
-  margin-top: 5px;
+
+  /* margin not necessary, the padding on .info makes it uniform with the img
+  margin-top: 5px; 
+  */
 }
 .username h3 {
   font-family: "Rubik";
-  font-size: 30px;
+  font-size: 2.5rem;
+  font-weight: 400;
 }
 
 .time {
-  background-color: hsl(226, 43%, 10%);
-  height: 200px;
-  width: 250;
+  /* .time's bg is meant to be for .user-corner, compare the difference */
+
+  /* Always leave the height and width to be based on the parent */
+  /* height: 200px;
+  width: 250; */
   border-radius: 5px;
-  padding: 5px;
+  /* unify your padding with .info */
+  padding: 1rem;
 }
 .time p {
   padding: 5px;
@@ -69,8 +97,9 @@ main {
 .user-detaiils {
   margin: 5px;
   padding: 1rem;
-  max-width: 250px;
-  max-height: 300px;
+  /* Width for this? */
+  /* max-width: 250px;
+  max-height: 300px; */
 }
 
 .user-detaiils img {
@@ -81,15 +110,27 @@ main {
 
 .boxes {
   background-color: hsl(226, 43%, 10%);
-  border-radius: 5px;
-  width: 250px;
-  height: 150px;
+
+  /* check .top img css to understand why i did this */
+  z-index: 1;
+  position: relative;
+  border-radius: 10px;
+  padding: 1rem;
+
+  /* Another width and height, this is meant for .box, all the children width fall in place (their default setting) */
+  /* width: 250px;
+  height: 150px; */
 }
+
 /*general top of all the boxes*/
 
 .top {
-  border-radius: 5px;
-  height: 100px;
+  height: 50px;
+  /* height is 50px or less */
+  /* only border radius at the top */
+  border-radius: 10px 10px 0 0;
+  position: relative;
+  /* remember to keep everything uniform */
 }
 
 .column-one {
@@ -98,30 +139,33 @@ main {
   gap: 2rem;
 }
 
-/*work box*/
-
-.top.one {
-  background-color: hsl(15, 100%, 70%);
-  position: relative;
-}
 .top img {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  height: 70px;
   top: 0;
-  left: 200px;
-  z-index: 2;
+  /* this is meant to be right() */
+  /* left: 200px; */
+  right: 5px;
+  /* add z-index:1 to the lower box. That will put this one behind it (1 in front of 0) 
+  using -1 might not work.
+  */
 }
+
+/*work box*/
+.top.one {
+  background-color: hsl(15, 100%, 70%);
+  /* repitition of code, .top should hold this instead  */
+  /* position: relative; */
+}
+
 /* play box*/
 .top.two {
   background-color: hsl(195, 74%, 62%);
-  position: relative;
 }
 
 /*study box*/
 .top.three {
   background-color: hsl(348, 100%, 68%);
-  position: relative;
 }
 
 /*third section*/
@@ -136,19 +180,16 @@ main {
 /*exercise box*/
 .top.four {
   background-color: hsl(145, 58%, 55%);
-  position: relative;
 }
 
 /*social box*/
 .top.five {
   background-color: hsl(264, 64%, 52%);
-  position: relative;
 }
 
 /*selfcare box*/
 .top.six {
   background-color: hsl(264, 64%, 52%);
-  position: relative;
 }
 
 /*contents of users details*/
@@ -157,46 +198,30 @@ main {
   justify-content: space-between;
 }
 .first.line img {
-  padding-right: 1rem;
+  /* .first.line should carry this */
+  /* padding-right: 1rem; */
   width: auto;
   height: auto;
   object-fit: contain;
 }
 .second.line h3,
 p {
-  padding: 10px;
+  padding: 10px 0;
 }
 
 .second.line h3 {
-  font-family: "Rubik";
+  /* font-family: "Rubik"; */
   font-size: 30px;
 }
 
-@media screen and (max-width: 768px) {
-  .column-one {
-    display: block;
-  }
-  .column-two {
-    display: block;
-  }
-  main {
-    display: block;
-    gap: 2rem;
-  }
-  .top {
-    border-radius: 5px;
-    height: 100px;
-  }
-  .second.line {
-    display: flex;
-    justify-content: space-between;
-  }
-}
-.boxes {
-  border-radius: 5px;
-  width: 250px;
-  height: 150px;
-}
+/* put your .attribution at the bottom */
+
+/* I will be working on Mobile part later,
+   In case you want to work on it, try to note where the screen breaks,
+  On my own screen, the first width is 1015-1030, my first media query will target that (max-width:1030px), then I keep reducing the screen to not the breakpoints and fix them. 
+  
+  This is a desktop-first approach
+*/
 
 /* ## Colors 
 
